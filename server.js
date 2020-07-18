@@ -51,6 +51,6 @@ app.get("/", (req, res, next) => {
   res.send();
 });
 
-http.createServer(app).listen(9999, function () {
-  console.log("listening on port " + 9999);
+http.createServer(app).listen(3100, function () {
+  console.log("listening on port " + 3100);
 });
