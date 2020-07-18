@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://jayaharish.github.io/coda-frontend/",
     credentials: true,
   })
 );
