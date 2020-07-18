@@ -19,30 +19,35 @@ const removeProduct = require("./Routes/removeProduct");
 // const ProductRouter= require
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(morgan("dev"));
-app.use(cookieParser());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
-);
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(morgan("dev"));
+// app.use(cookieParser());
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     credentials: true,
+//   })
+// );
 
-app.use("/signin", Signin);
-app.use("/verifyToken", verifyToken);
-app.use("/addProduct", addProduct);
-app.use("/products", products);
-app.use("/getProduct", oneProduct);
-app.use("/getuserproducts", getUserProducts);
-// app.use("/products",products)
-app.use("/balance", balance);
-app.use("/bidding", bidding);
-app.use("/removeproduct", removeProduct);
+// app.use("/signin", Signin);
+// app.use("/verifyToken", verifyToken);
+// app.use("/addProduct", addProduct);
+// app.use("/products", products);
+// app.use("/getProduct", oneProduct);
+// app.use("/getuserproducts", getUserProducts);
+// // app.use("/products",products)
+// app.use("/balance", balance);
+// app.use("/bidding", bidding);
+// app.use("/removeproduct", removeProduct);
 
-app.get("/logout", (req, res, next) => {
-  res.clearCookie("user");
+// app.get("/logout", (req, res, next) => {
+//   res.clearCookie("user");
+//   res.send();
+// });
+
+app.get("/", (req, res, next) => {
+  res.write("Hello world");
   res.send();
 });
 
