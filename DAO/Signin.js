@@ -1,20 +1,24 @@
 const MongoClient = require("mongodb").MongoClient;
-const uri = "mongodb://127.0.0.1:27017/";
+require("dotenv").config();
 
 function connectToDB(email, password) {
   return new Promise((resolve, reject) => {
-    MongoClient.connect(uri, { useUnifiedTopology: true }, (err, db) => {
-      if (err) reject(err);
-      else {
-        db.db("olx")
-          .collection("users")
-          .findOne({ email: email, password: password })
-          .then((doc) => {
-            resolve(doc !== null);
-          })
-          .catch((err) => reject(err));
+    MongoClient.connect(
+      process.env.PRODUCTION_DB,
+      { useUnifiedTopology: true },
+      (err, db) => {
+        if (err) reject(err);
+        else {
+          db.db("olx")
+            .collection("users")
+            .findOne({ email: email, password: password })
+            .then((doc) => {
+              resolve(doc !== null);
+            })
+            .catch((err) => reject(err));
+        }
       }
-    });
+    );
   });
 }
 module.exports = connectToDB;
