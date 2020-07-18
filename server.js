@@ -51,6 +51,6 @@ app.get("/logout", (req, res, next) => {
 //   res.send();
 // });
 
-http.createServer(app).listen(3100, function () {
-  console.log("listening on port " + 3100);
+http.createServer(app).listen(443, function () {
+  console.log("listening on port " + 443);
 });
